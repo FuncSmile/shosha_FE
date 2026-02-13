@@ -1,0 +1,27 @@
+# Cloudflare Pages Configuration for ShoshaMart Frontend
+name = "shosha-mart-frontend"
+compatibility_date = "2024-11-01"
+
+# Pages build configuration
+pages_build_output_dir = ".output/public"
+
+# Environment variables (set these in Cloudflare dashboard)
+# NUXT_PUBLIC_API_BASE = "https://api.yourdomain.com/api"
+
+# KV Namespaces (optional, if needed for caching)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "YOUR_KV_NAMESPACE_ID"
+
+# D1 Databases (optional, if using Cloudflare D1)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "shosha-mart-db"
+# database_id = "YOUR_D1_DATABASE_ID"
+
+[build]
+command = "npm run build"
+cwd = ""
+
+[build.upload]
+format = "modules"

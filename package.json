@@ -1,0 +1,43 @@
+{
+  "name": "shosha-mart-frontend",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "ShoshaMart Frontend - Internal Marketplace",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "deploy:cf": "nuxt build && wrangler pages deploy .output/public --project-name=shosha-mart-frontend",
+    "deploy:preview": "nuxt build && wrangler pages deploy .output/public --project-name=shosha-mart-frontend --branch=preview"
+  },
+  "dependencies": {
+    "@nuxt/icon": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "^0.5.1",
+    "@vee-validate/nuxt": "^4.12.5",
+    "@vee-validate/zod": "^4.12.5",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-vue-next": "^0.358.0",
+    "nuxt": "^3.11.2",
+    "pinia": "^2.1.7",
+    "radix-vue": "^1.7.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.12.5",
+    "vue": "^3.4.21",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/node": "^20.11.30",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.3",
+    "vue-tsc": "^2.0.7"
+  }
+}

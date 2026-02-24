@@ -326,7 +326,7 @@ const handleBulkUpdate = async () => {
   submitting.value = true
   error.value = ''
   try {
-    await pricingApi.bulkSetPricing({ items })
+    await pricingApi.bulkSetPricing({ pricings: items })
     closeBulkModal()
     await loadPricing()
   } catch (err: any) {

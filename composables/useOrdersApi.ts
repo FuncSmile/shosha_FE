@@ -33,7 +33,7 @@ export const useOrdersApi = () => {
       api.patch<Order>(`/orders/${id}/status`, data),
 
     editOrder: (id: string, data: EditOrderDto) =>
-      api.put<Order>(`/orders/${id}`, data),
+      api.put<Order>(`/orders/${id}/edit`, data),
 
     getAuditLogs: (id: string) =>
       api.get<AuditLog[]>(`/orders/${id}/audit-logs`),
@@ -42,7 +42,7 @@ export const useOrdersApi = () => {
       api.post(`/orders/${id}/print-invoice`),
 
     downloadInvoice: (id: string) =>
-      api.get(`/orders/${id}/download-invoice`, { 
+      api.get(`/orders/${id}/download-invoice`, {
         responseType: 'blob' as any,
       }),
   }

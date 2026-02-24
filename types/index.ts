@@ -120,7 +120,7 @@ export interface SetPricingDto {
 }
 
 export interface BulkPricingDto {
-  items: SetPricingDto[]
+  pricings: SetPricingDto[]
 }
 
 export interface PricingWithProduct extends Pricing {
@@ -193,7 +193,7 @@ export interface EditOrderDto {
     variantId: string
     quantity: number
   }[]
-  comment: string
+  notes: string
 }
 
 export interface AuditLog {

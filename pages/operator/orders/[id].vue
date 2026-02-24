@@ -23,13 +23,13 @@
         </div>
         <div class="flex items-center space-x-3">
           <button
-            v-if="order.status === 'DISETUJUI' && !order.invoicePrintedAt"
+            v-if="order.status !== 'PENDING' && order.status !== 'DITOLAK'"
             @click="printInvoice"
             :disabled="printing"
-            class="inline-flex items-center px-4 py-2 border-2 border-secondary-300 rounded-lg text-sm font-semibold text-secondary-700 bg-white hover:bg-secondary-50 hover:border-secondary-400 focus:ring-2 focus:ring-secondary-500 disabled:opacity-50 transition-colors shadow-sm"
+            class="inline-flex items-center px-4 py-2 border-2 border-primary-100 rounded-lg text-sm font-semibold text-primary-700 bg-primary-50 hover:bg-primary-100 hover:border-primary-200 focus:ring-2 focus:ring-primary-500 disabled:opacity-50 transition-colors shadow-sm"
           >
             <Icon name="lucide:printer" class="w-4 h-4 mr-2" />
-            {{ printing ? 'Memproses...' : 'Cetak Invoice' }}
+            {{ printing ? 'Memproses...' : (order.invoicePrintedAt ? 'Cetak Ulang' : 'Cetak Invoice') }}
           </button>
           <NuxtLink
             to="/operator/orders"
@@ -216,7 +216,7 @@
               </button>
 
               <button
-                v-if="order.status === 'PENDING'"
+                v-if="!['SELESAI', 'DITOLAK'].includes(order.status)"
                 @click="rejectOrder"
                 :disabled="updatingStatus"
                 class="w-full inline-flex justify-center items-center px-4 py-2 border-2 border-red-600 text-sm font-semibold rounded-lg text-red-700 bg-white hover:bg-red-50 hover:border-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 transition-colors"
